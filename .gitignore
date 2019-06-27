@@ -1,0 +1,25 @@
+# eclipse
+**/1.1*.*/bin
+**/1.1*.*/*.launch
+**/1.1*.*/.settings
+**/1.1*.*/.metadata
+**/1.1*.*/.classpath
+**/1.1*.*/.project
+
+# idea
+**/1.1*.*/out
+**/1.1*.*/*.ipr
+**/1.1*.*/*.iws
+**/1.1*.*/*.iml
+**/1.1*.*/.idea
+
+# gradle
+**/1.1*.*/build
+**/1.1*.*/.gradle
+
+# other
+**/1.1*.*/eclipse
+**/1.1*.*/run
+
+# Files from Forge MDK
+**/1.1*.*/forge*changelog.txt
