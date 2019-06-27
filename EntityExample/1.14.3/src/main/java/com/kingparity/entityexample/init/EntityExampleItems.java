@@ -23,7 +23,7 @@ public class EntityExampleItems
     //An instance of our spawn egg item
     public static Item EXAMPLE_ENTITY_SPAWN_EGG;
     
-    //The list of the entities we want to register as EntityType
+    //The list of the items we want to register
     private static final List<Item> ITEMS = new LinkedList<>();
     
     public static void add(Item item)
