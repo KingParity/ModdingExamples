@@ -1,0 +1,6 @@
+{
+    "parent": "block/cube_all",
+    "textures": {
+        "all": "storageblockexample:block/example_storage_block"
+    }
+}
