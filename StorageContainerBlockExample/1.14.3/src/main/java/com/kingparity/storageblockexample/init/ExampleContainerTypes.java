@@ -14,6 +14,7 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.network.IContainerFactory;
+import net.minecraftforge.registries.ObjectHolder;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -23,7 +24,8 @@ import java.util.List;
 public class ExampleContainerTypes
 {
     //An instance of our container as a ContainerType
-    public static ContainerType<ExampleStorageContainer> EXAMPLE_STORAGE_CONTAINER;
+    @ObjectHolder(Reference.ID)
+    public static final ContainerType<ExampleStorageContainer> EXAMPLE_STORAGE_CONTAINER = null;
     
     //The list of the containers we want to register as ContainerType
     private static final List<ContainerType<?>> CONTAINER_TYPES = new ArrayList<>();
@@ -41,7 +43,7 @@ public class ExampleContainerTypes
     //Instantiate our tile entity as a TileEntityType (we can have multiple in here)
     static
     {
-        EXAMPLE_STORAGE_CONTAINER = register("example_storage_container", ExampleStorageContainer::new);
+        register("example_storage_container", ExampleStorageContainer::new);
     }
     
     @SubscribeEvent

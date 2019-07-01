@@ -1,7 +1,6 @@
 package com.kingparity.storageblockexample.init;
 
 import com.kingparity.storageblockexample.Reference;
-import com.kingparity.storageblockexample.block.ExampleStorageBlock;
 import com.kingparity.storageblockexample.tileentity.ExampleStorageTileEntity;
 import net.minecraft.block.Block;
 import net.minecraft.tileentity.TileEntity;
@@ -10,6 +9,7 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.registries.ObjectHolder;
 
 import java.util.Collections;
 import java.util.LinkedList;
@@ -20,7 +20,8 @@ import java.util.function.Supplier;
 public class ExampleTileEntities
 {
     //An instance of our tile entity as a TileEntityType
-    public static TileEntityType<ExampleStorageTileEntity> EXAMPLE_STORAGE_TILE_ENTITY;
+    @ObjectHolder(Reference.ID)
+    public static final TileEntityType<?> EXAMPLE_STORAGE_TILE_ENTITY = null;
     
     //The list of the tile entities we want to register as TileEntityType
     private static final List<TileEntityType<?>> TILE_ENTITY_TYPES = new LinkedList<>();
@@ -38,7 +39,7 @@ public class ExampleTileEntities
     //Instantiate our tile entity as a TileEntityType (we can have multiple in here)
     static
     {
-        EXAMPLE_STORAGE_TILE_ENTITY = register("example_storage_tile_entity", ExampleStorageTileEntity::new, ExampleBlocks.EXAMPLE_STORAGE_BLOCK);
+        register("example_storage_tile_entity", ExampleStorageTileEntity::new, ExampleBlocks.EXAMPLE_STORAGE_BLOCK);
     }
     
     //Registers all values in the TILE_ENTITY_TYPES list

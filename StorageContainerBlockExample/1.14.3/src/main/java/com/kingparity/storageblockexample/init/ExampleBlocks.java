@@ -11,6 +11,7 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.registries.ObjectHolder;
 
 import java.util.Collections;
 import java.util.LinkedList;
@@ -26,7 +27,8 @@ public class ExampleBlocks
     public static Item.Properties tabMisc = new Item.Properties().group(ItemGroup.MISC);
     
     //An instance of our storage block
-    public static Block EXAMPLE_STORAGE_BLOCK;
+    @ObjectHolder(Reference.ID)
+    public static final Block EXAMPLE_STORAGE_BLOCK = null;
     
     //The list of the blocks we want to register
     private static final List<Block> BLOCKS = new LinkedList<>();
@@ -44,7 +46,7 @@ public class ExampleBlocks
     //Instantiate our block (we can have multiple in here)
     static
     {
-        EXAMPLE_STORAGE_BLOCK = register("example_storage_block", new ExampleStorageBlock(EXAMPLE_STORAGE_BLOCK_PROPERTIES), tabMisc);
+        register("example_storage_block", new ExampleStorageBlock(EXAMPLE_STORAGE_BLOCK_PROPERTIES), tabMisc);
     }
     
     //Registers all values in the BLOCKS list

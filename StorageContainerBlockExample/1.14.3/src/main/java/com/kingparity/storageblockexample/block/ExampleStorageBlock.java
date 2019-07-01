@@ -1,5 +1,6 @@
 package com.kingparity.storageblockexample.block;
 
+import com.kingparity.storageblockexample.init.ExampleTileEntities;
 import com.kingparity.storageblockexample.tileentity.ExampleStorageTileEntity;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
@@ -33,7 +34,7 @@ public class ExampleStorageBlock extends Block
     @Override
     public TileEntity createTileEntity(BlockState state, IBlockReader world)
     {
-        return new ExampleStorageTileEntity();
+        return ExampleTileEntities.EXAMPLE_STORAGE_TILE_ENTITY.create();
     }
     
     @Override
