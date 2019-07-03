@@ -27,8 +27,8 @@ public class ExampleBlocks
     public static Item.Properties tabMisc = new Item.Properties().group(ItemGroup.MISC);
     
     //An instance of our storage block
-    @ObjectHolder(Reference.ID + ":example_storage_block")
-    public static final Block EXAMPLE_STORAGE_BLOCK = null;
+    @ObjectHolder(Reference.ID + ":example_storage")
+    public static final Block EXAMPLE_STORAGE = null;
     
     //The list of the blocks we want to register
     private static final List<Block> BLOCKS = new LinkedList<>();
@@ -43,31 +43,26 @@ public class ExampleBlocks
         return Collections.unmodifiableList(BLOCKS);
     }
     
-    //Instantiate our block (we can have multiple in here)
-    static
-    {
-        register("example_storage_block", new ExampleStorageBlock(EXAMPLE_STORAGE_BLOCK_PROPERTIES), tabMisc);
-    }
-    
     //Registers all values in the BLOCKS list
     @SubscribeEvent
     public static void addBlocks(final RegistryEvent.Register<Block> event)
     {
+        register("example_storage", new ExampleStorageBlock(EXAMPLE_STORAGE_BLOCK_PROPERTIES), tabMisc);
         BLOCKS.forEach(block -> event.getRegistry().register(block));
     }
     
-    private static Block register(String name, Block.Properties properties, Item.Properties itemBuilder)
+    private static void register(String name, Block.Properties properties, Item.Properties itemBuilder)
     {
         Block block = new Block(properties);
-        return register(name, block, new BlockItem(block, itemBuilder));
+        register(name, block, new BlockItem(block, itemBuilder));
     }
     
-    private static Block register(String name, Block block, Item.Properties itemBuilder)
+    private static void register(String name, Block block, Item.Properties itemBuilder)
     {
-        return register(name, block, new BlockItem(block, itemBuilder));
+        register(name, block, new BlockItem(block, itemBuilder));
     }
     
-    private static Block register(String name, Block block, BlockItem itemBlock)
+    private static void register(String name, Block block, BlockItem itemBlock)
     {
         block.setRegistryName(new ResourceLocation(Reference.ID, name));
         if(block.getRegistryName() != null)
@@ -80,6 +75,5 @@ public class ExampleBlocks
         }
         BLOCKS.add(block);
         ExampleItems.add(itemBlock);
-        return block;
     }
 }

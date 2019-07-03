@@ -23,7 +23,7 @@ public class ExampleStorageContainer extends Container
     
     public ExampleStorageContainer(int windowId, PlayerInventory playerInventory, IInventory inventory)
     {
-        super(ExampleContainerTypes.EXAMPLE_STORAGE_CONTAINER, windowId);
+        super(ExampleContainerTypes.EXAMPLE_STORAGE, windowId);
         assertInventorySize(inventory, numRows * 9);
         this.inventory = inventory;
         inventory.openInventory(playerInventory.player);

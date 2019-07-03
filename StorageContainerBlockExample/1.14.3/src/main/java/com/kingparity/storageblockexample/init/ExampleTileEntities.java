@@ -20,8 +20,8 @@ import java.util.function.Supplier;
 public class ExampleTileEntities
 {
     //An instance of our tile entity as a TileEntityType
-    @ObjectHolder(Reference.ID + ":example_storage_tile_entity")
-    public static final TileEntityType<?> EXAMPLE_STORAGE_TILE_ENTITY = null;
+    @ObjectHolder(Reference.ID + ":example_storage")
+    public static final TileEntityType<?> EXAMPLE_STORAGE = null;
     
     //The list of the tile entities we want to register as TileEntityType
     private static final List<TileEntityType<?>> TILE_ENTITY_TYPES = new LinkedList<>();
@@ -36,16 +36,11 @@ public class ExampleTileEntities
         return Collections.unmodifiableList(TILE_ENTITY_TYPES);
     }
     
-    //Instantiate our tile entity as a TileEntityType (we can have multiple in here)
-    static
-    {
-        register("example_storage_tile_entity", ExampleStorageTileEntity::new, ExampleBlocks.EXAMPLE_STORAGE_BLOCK);
-    }
-    
     //Registers all values in the TILE_ENTITY_TYPES list
     @SubscribeEvent
     public static void addTileEntityTypes(final RegistryEvent.Register<TileEntityType<?>> event)
     {
+        register("example_storage", ExampleStorageTileEntity::new, ExampleBlocks.EXAMPLE_STORAGE);
         TILE_ENTITY_TYPES.forEach(type -> event.getRegistry().register(type));
     }
     

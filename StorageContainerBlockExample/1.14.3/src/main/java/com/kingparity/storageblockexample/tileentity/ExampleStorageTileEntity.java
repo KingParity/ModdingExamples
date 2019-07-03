@@ -11,7 +11,7 @@ public class ExampleStorageTileEntity extends BaseStorageTileEntity
     
     public ExampleStorageTileEntity()
     {
-        super(ExampleTileEntities.EXAMPLE_STORAGE_TILE_ENTITY, "example_storage_tile_entity", slotNum);
+        super(ExampleTileEntities.EXAMPLE_STORAGE, "example_storage", slotNum);
     }
     
     @Override

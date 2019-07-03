@@ -24,8 +24,8 @@ import java.util.List;
 public class ExampleContainerTypes
 {
     //An instance of our container as a ContainerType
-    @ObjectHolder(Reference.ID + ":example_storage_container")
-    public static final ContainerType<ExampleStorageContainer> EXAMPLE_STORAGE_CONTAINER = null;
+    @ObjectHolder(Reference.ID + ":example_storage")
+    public static final ContainerType<ExampleStorageContainer> EXAMPLE_STORAGE = null;
     
     //The list of the containers we want to register as ContainerType
     private static final List<ContainerType<?>> CONTAINER_TYPES = new ArrayList<>();
@@ -40,29 +40,23 @@ public class ExampleContainerTypes
         return Collections.unmodifiableList(CONTAINER_TYPES);
     }
     
-    //Instantiate our tile entity as a TileEntityType (we can have multiple in here)
-    static
-    {
-        register("example_storage_container", ExampleStorageContainer::new);
-    }
-    
     @SubscribeEvent
     public static void addContainerTypes(final RegistryEvent.Register<ContainerType<?>> event)
     {
+        register("example_storage", ExampleStorageContainer::new);
         CONTAINER_TYPES.forEach(container_type -> event.getRegistry().register(container_type));
     }
     
     public static void bindScreens(FMLClientSetupEvent event)
     {
-        bindScreen(EXAMPLE_STORAGE_CONTAINER, ExampleStorageScreen::new);
+        bindScreen(EXAMPLE_STORAGE, ExampleStorageScreen::new);
     }
     
-    private static <T extends Container> ContainerType<T> register(String name, IContainerFactory<T> container)
+    private static <T extends Container> void register(String name, IContainerFactory<T> container)
     {
         ContainerType<T> type = IForgeContainerType.create(container);
         type.setRegistryName(name);
         CONTAINER_TYPES.add(type);
-        return type;
     }
     
     private static <M extends Container, U extends Screen & IHasContainer<M>> void bindScreen(ContainerType<M> container, ScreenManager.IScreenFactory<M, U> screen)

@@ -34,7 +34,7 @@ public class ExampleStorageBlock extends Block
     @Override
     public TileEntity createTileEntity(BlockState state, IBlockReader world)
     {
-        return ExampleTileEntities.EXAMPLE_STORAGE_TILE_ENTITY.create();
+        return ExampleTileEntities.EXAMPLE_STORAGE.create();
     }
     
     @Override
