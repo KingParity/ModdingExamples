@@ -20,7 +20,7 @@ import java.util.function.Supplier;
 public class ExampleTileEntities
 {
     //An instance of our tile entity as a TileEntityType
-    @ObjectHolder(Reference.ID)
+    @ObjectHolder(Reference.ID + ":example_storage_tile_entity")
     public static final TileEntityType<?> EXAMPLE_STORAGE_TILE_ENTITY = null;
     
     //The list of the tile entities we want to register as TileEntityType
@@ -56,11 +56,10 @@ public class ExampleTileEntities
      * @param <T> the tile entity java file (FurnaceTileEntity, ChestTileEntity, etc.)
      * @return a new tile entity type registered with the parameters given
      */
-    private static <T extends TileEntity> TileEntityType<T> register(String name, Supplier<T> factory, Block... validBlocks)
+    private static <T extends TileEntity> void register(String name, Supplier<T> factory, Block... validBlocks)
     {
         TileEntityType<T> type = TileEntityType.Builder.create(factory, validBlocks).build(null);
         type.setRegistryName(new ResourceLocation(Reference.ID, name));
         TILE_ENTITY_TYPES.add(type);
-        return type;
     }
 }

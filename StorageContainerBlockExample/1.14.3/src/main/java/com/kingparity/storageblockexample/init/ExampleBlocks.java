@@ -27,7 +27,7 @@ public class ExampleBlocks
     public static Item.Properties tabMisc = new Item.Properties().group(ItemGroup.MISC);
     
     //An instance of our storage block
-    @ObjectHolder(Reference.ID)
+    @ObjectHolder(Reference.ID + ":example_storage_block")
     public static final Block EXAMPLE_STORAGE_BLOCK = null;
     
     //The list of the blocks we want to register

@@ -24,7 +24,7 @@ import java.util.List;
 public class ExampleContainerTypes
 {
     //An instance of our container as a ContainerType
-    @ObjectHolder(Reference.ID)
+    @ObjectHolder(Reference.ID + ":example_storage_container")
     public static final ContainerType<ExampleStorageContainer> EXAMPLE_STORAGE_CONTAINER = null;
     
     //The list of the containers we want to register as ContainerType
